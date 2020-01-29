@@ -1,0 +1,1 @@
+Example of composition/traits with C# 8+.
