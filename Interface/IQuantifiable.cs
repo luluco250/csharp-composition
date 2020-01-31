@@ -1,3 +1,5 @@
+namespace Traits.Interface {
+
 interface IQuantifiable {
 	int MaxQuantity { get; }
 
@@ -6,4 +8,6 @@ interface IQuantifiable {
 	bool IsEmpty => Quantity <= 0;
 
 	float PercentLeft => Quantity / (float)MaxQuantity;
+}
+
 }

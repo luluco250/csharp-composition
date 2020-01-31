@@ -1,9 +1,17 @@
 using System.Collections.Generic;
+using Traits.Interface;
 
-sealed class Cow : INamed, ISoundMaker, IProduces {
+namespace Traits.Concrete {
+
+sealed class Cow : INamed, ISoundMaker, IProducer {
 	public string Name { get; set; } = "Betsy";
 
 	public string Sound => "Moo!";
+
+	public Cow() {}
+
+	public Cow(string name)
+		=> Name = name;
 
 	public IEnumerable<IProduct> Produce() {
 		IRandomEngine rand = RandomEngine.Instance;
@@ -12,4 +20,6 @@ sealed class Cow : INamed, ISoundMaker, IProduces {
 		for (int i = 0; i < amount; ++i)
 			yield return new Milk();
 	}
+}
+
 }

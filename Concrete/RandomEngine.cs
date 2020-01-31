@@ -1,6 +1,9 @@
 using System;
+using Traits.Interface;
 
-class RandomEngine : IRandomEngine {
+namespace Traits.Concrete {
+
+sealed class RandomEngine : IRandomEngine {
 	[ThreadStatic]
 	private static RandomEngine _Instance = null;
 	public static RandomEngine Instance
@@ -20,4 +23,6 @@ class RandomEngine : IRandomEngine {
 
 	public double Between(double a, double b)
 		=> random.NextDouble() % (b - a) + a;
+}
+
 }

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 
-interface IProduces {
+namespace Traits.Interface {
+
+interface IProducer {
 	IEnumerable<IProduct> Produce();
 
 	IEnumerable<IProduct> Produce(int maximum) {
@@ -16,4 +18,6 @@ interface IProduces {
 			yield return prod;
 		}
 	}
+}
+
 }

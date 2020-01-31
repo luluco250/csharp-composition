@@ -1,1 +1,0 @@
-interface IProduct : INamed {}

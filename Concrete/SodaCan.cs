@@ -1,6 +1,9 @@
 using System.Collections.Generic;
+using Traits.Interface;
 
-class SodaCan : INamed, IProduces, ISoundMaker, IQuantifiable {
+namespace Traits.Concrete {
+
+sealed class SodaCan : INamed, IProducer, ISoundMaker, IQuantifiable {
 	public string Name { get; set; } = "Bepis";
 
 	public string Sound => "Fthsssss!";
@@ -9,6 +12,11 @@ class SodaCan : INamed, IProduces, ISoundMaker, IQuantifiable {
 	public int MaxQuantity => _MaxQuantity;
 
 	public int Quantity { get; private set; } = _MaxQuantity;
+
+	public SodaCan() {}
+
+	public SodaCan(string name)
+		=> Name = name;
 
 	public IEnumerable<IProduct> Produce() {
 		int initialQuantity = Quantity;
@@ -19,4 +27,6 @@ class SodaCan : INamed, IProduces, ISoundMaker, IQuantifiable {
 			--Quantity;
 		}
 	}
+}
+
 }
